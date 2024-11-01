@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المخرجات</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+        .navbar {
+            background-color: #2c3e75;
+            padding: 20px;
+            color: #fff;
+        }
+        .navbar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .navbar ul li {
+            display: inline;
+            margin-left: 20px;
+            font-size: 18px;
+        }
+        .navbar ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+        .navbar .login-btn {
+            background-color: #28a745;
+            padding: 10px 20px;
+            border-radius: 5px;
+            color: white;
+            text-decoration: none;
+        }
+        .output-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80vh;
+            padding: 20px;
+        }
+        .invoice-image {
+            width: 500px;
+            height: auto;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            opacity: 1;
+        }
+        .output-section {
+            text-align: right;
+            width: 300px;
+            padding: 0px 23px 0px 43px;
+            border-top: 1px solid #ddd;
+            opacity: 1;
+            background-color: #fff; 
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            margin-right: 20px;
+        }
+        .output-section h2 {
+            color: #2c3e75;
+            font-size: 18px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 8px;
+            margin-bottom: 15px;
+        }
+        .invoice-form {
+            text-align: right;
+            direction: rtl;
+        }
+        .invoice-form p {
+            display: block;
+            font-size: 14px;
+            margin: 8px auto;
+            text-align: right;
+            color: #333;
+        }
+        .submit-btn, .download-btn {
+            background-color: #28a745;
+            color: #fff;
+            padding: 8px;
+            font-size: 14px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: calc(100% - 20px);
+            margin-top: 10px;
+        }
+        .submit-btn:hover, .download-btn:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <ul>
+            <li><a href="index.html">الصفحة الرئيسية</a></li>
+            <li><a href="الخدمات.html">الخدمات</a></li>
+            <li><a href="من نحن؟.html">من نحن؟</a></li>
+            <li><a href="تسجيل الدخول.html" class="login-btn">تسجيل دخول</a></li>
+            <li><a href="output.html">الفاتورة</a></li>
+            <li><a href="تحليل الفاتورة.html">تحليل الفاتورة</a></li>
+            <li><a href="اشترك معنا.html">اشتراك معنا</a></li>
+        </ul>
+    </div>
+
+    <div class="output-container">
+        <div>
+            <img id="invoiceImage" src="https://s3-alpha-sig.figma.com/img/0636/1c18/b91355867183741e27c123176fb85329?Expires=1731283200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=LYBJ0UCgCpmLK76GzgaiEtgOeRK6tikN46TgddrZw~E2WmTRJXL2M7p8MFViuStT7di4B-~N8n9Ac7QryBGwPibYtjrNcst~15kKMe5LFS6TaiVS7TyWvpGLJGC0~p4hbp8zsnEk7lea3RxnBzfhuBXG8unWHAxHbLjQGmTv6VTSUt8IeondabKUB1SmdRpYYmdzf~FBxryVVUP7ews~u-HMGyVfE~qYm98yR-6CJsZi4Hu~jXxx7ekshZBetBF2lYJdskKSxjYhRK~Ct2BpRG9M9QUwhwHeeueQgBj~eoCeof2MzzjTgw-7aPxKl-qzgQ5B5vER5kEHLnuGmWv8ag__" alt="صورة الفاتورة" class="invoice-image">
+        </div>
+        <div class="output-section">
+            <h2>البيانات المستخرجة</h2>
+
+            <div class="invoice-form">
+                <p>اسم الشركة: شركة X</p>
+                <p>رقم الفاتورة: #1234</p>
+                <p>التاريخ: 2024/02/09</p>
+                <p>البيان: صيانة النظام المحاسبي</p>
+                <p>السعر: 500</p>
+                <p>الضريبة: 75</p>
+                <p>الإجمالي: 575</p>
+                <button class="submit-btn">حفظ</button>
+                <button class="download-btn" onclick="downloadPDF()">تحميل الفاتورة بصيغة .pdf</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script to generate and download PDF with image -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script>
+        function downloadPDF() {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+
+            // إضافة النصوص إلى ملف PDF
+            doc.setFontSize(12);
+            doc.text("الفاتورة", 105, 10, { align: "center" });
+            doc.setFontSize(10);
+            doc.text("اسم الشركة: شركة X", 10, 30);
+            doc.text("رقم الفاتورة: #1234", 10, 40);
+            doc.text("التاريخ: 2024/02/09", 10, 50);
+            doc.text("البيان: صيانة النظام المحاسبي", 10, 60);
+            doc.text("السعر: 500", 10, 70);
+            doc.text("الضريبة: 75", 10, 80);
+            doc.text("الإجمالي: 575", 10, 90);
+
+            // إضافة صورة الفاتورة باستخدام html2canvas
+            html2canvas(document.getElementById("invoiceImage")).then(canvas => {
+                const imgData = canvas.toDataURL("image/png");
+                doc.addImage(imgData, "PNG", 10, 100, 180, 80); // ضبط أبعاد الصورة
+                doc.save("فاتورة.pdf");
+            });
+        }
+    </script>
+
+</body>
+</html>

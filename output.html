@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المخرجات</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+        .navbar {
+            background-color: #2c3e75;
+            padding: 20px;
+            color: #fff;
+        }
+        .navbar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .navbar ul li {
+            display: inline;
+            margin-left: 20px;
+            font-size: 18px;
+        }
+        
+        .navbar ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+        .navbar .login-btn {
+            background-color: #28a745;
+            padding: 10px 20px;
+            border-radius: 5px;
+            color: white;
+            text-decoration: none;
+        }
+        .content {
+            padding: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+        }
+        .upload-section {
+            border: 2px dashed #aaa;
+            padding: 40px;
+            width: 300px;
+            height: 400px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: #fff;
+        }
+        .upload-section p {
+            font-size: 18px;
+            color: #333;
+        }
+        .upload-section input[type="file"] {
+            display: none;
+        }
+        .upload-section label {
+            color: #2c3e75;
+            font-size: 16px;
+            cursor: pointer;
+            border: 1px solid #2c3e75;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        .analyze-btn {
+            margin-top: 20px;
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .output-section {
+            text-align: left;
+            width: 300px;
+            background-color: #fff;
+            padding: 20px;
+            border: 1px solid #ddd;
+        }
+        .output-section h2 {
+            color: #2c3e75;
+            font-size: 20px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        .download-btn {
+            margin-top: 20px;
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        #uploaded-image {
+            max-width: 100%;
+            height: auto;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <ul>
+            <li><a href="index.html">الصفحة الرئيسية</a></li>
+            <li><a href="الخدمات.html">الخدمات</a></li>
+            <li><a href="من نحن؟.html">من نحن؟</a></li>
+            <li><a href="تسجيل الدخول.html" class="login-btn">تسجيل دخول</a></li>
+            <li><a href="output.html">الفاتورة</a></li>
+            <li><a href="اشترك معنا.html">اشتراك معنا</a></li>
+        </ul>
+    </div>
+
+    <div class="content">
+        <!-- قسم التحميل -->
+        <div class="upload-section">
+            <p>ارفع فاتورتك وضع النظام ينجز العمل نيابةً عنك!</p>
+            <label for="file-upload">اسحب الملف وأفلته هنا</label>
+            <input type="file" id="file-upload" accept="image/*">
+            
+            <!-- نموذج للزر لتحليل الفاتورة -->
+            <form action="تحليل الفاتورة.html" method="get">
+                <button type="submit" class="analyze-btn">تحليل الفاتورة</button>
+            </form>
+        </div>
+
+        <!-- قسم المخرجات -->
+        <div class="output-section">
+            <h2>البيانات المستخرجة</h2>
+            <p>هنا سيتم عرض البيانات المستخرجة من الفاتورة.</p>
+            <button id="download-pdf" class="download-btn">تحميل الفاتورة بصيغة .pdf</button>
+            <img id="uploaded-image" src="" alt="الصورة المحملة" style="display: none;">
+        </div>
+    </div>
+
+    <!-- تضمين مكتبة jsPDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script>
+        const fileUpload = document.getElementById('file-upload');
+        const uploadedImage = document.getElementById('uploaded-image');
+        const downloadPdfBtn = document.getElementById('download-pdf');
+
+        fileUpload.addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    uploadedImage.src = e.target.result;
+                    uploadedImage.style.display = 'block';
+                }
+                reader.readAsDataURL(file);
+            }
+        });
+
+        downloadPdfBtn.addEventListener('click', function() {
+            const { jsPDF } = window.jspdf;
+            const pdf = new jsPDF();
+
+            if (uploadedImage.src) {
+                pdf.addImage(uploadedImage.src, 'JPEG', 15, 40, 180, 160);
+                pdf.save("فاتورة.pdf");
+            } else {
+                alert("الرجاء تحميل صورة الفاتورة أولاً.");
+            }
+        });
+    </script>
+
+</body>
+</html>
