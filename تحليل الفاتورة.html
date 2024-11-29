@@ -26,7 +26,6 @@
             margin-left: 20px;
             font-size: 18px;
         }
-        
         .navbar ul li a {
             color: #fff;
             text-decoration: none;
@@ -38,78 +37,62 @@
             color: white;
             text-decoration: none;
         }
-        .content {
-            padding: 40px;
+        .output-container {
             display: flex;
             justify-content: center;
-            align-items: center;
-            gap: 40px;
+            align-items: flex-start;
+            height: 80vh;
+            padding: 20px;
         }
-        .upload-section {
-            border: 2px dashed #aaa;
-            padding: 40px;
-            width: 300px;
-            height: 400px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            background-color: #fff;
-        }
-        .upload-section p {
-            font-size: 18px;
-            color: #333;
-        }
-        .upload-section input[type="file"] {
-            display: none;
-        }
-        .upload-section label {
-            color: #2c3e75;
-            font-size: 16px;
-            cursor: pointer;
-            border: 1px solid #2c3e75;
-            padding: 10px 20px;
-            border-radius: 5px;
-            margin-top: 20px;
-        }
-        .analyze-btn {
-            margin-top: 20px;
-            background-color: #28a745;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            font-size: 16px;
-            cursor: pointer;
-            text-decoration: none;
+        .invoice-image {
+            width: 300px;  /* تم تقليص العرض إلى 300px */
+            height: auto;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            opacity: 1;
         }
         .output-section {
-            text-align: left;
+            text-align: right;
             width: 300px;
-            background-color: #fff;
-            padding: 20px;
-            border: 1px solid #ddd;
+            padding: 0px 23px 0px 43px;
+            border-top: 1px solid #ddd;
+            opacity: 1;
+            background-color: #fff; 
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            margin-right: 20px;
         }
         .output-section h2 {
             color: #2c3e75;
-            font-size: 20px;
+            font-size: 18px;
             border-bottom: 1px solid #ddd;
-            padding-bottom: 10px;
+            padding-bottom: 8px;
+            margin-bottom: 15px;
         }
-        .download-btn {
-            margin-top: 20px;
+        .invoice-form {
+            text-align: right;
+            direction: rtl;
+        }
+        .invoice-form p {
+            display: block;
+            font-size: 14px;
+            margin: 8px auto;
+            text-align: right;
+            color: #333;
+        }
+        .submit-btn, .download-btn {
             background-color: #28a745;
-            color: white;
-            padding: 10px 20px;
+            color: #fff;
+            padding: 8px;
+            font-size: 14px;
             border: none;
             border-radius: 5px;
-            font-size: 16px;
             cursor: pointer;
+            width: calc(100% - 20px);
+            margin-top: 10px;
         }
-        #uploaded-image {
-            max-width: 100%;
-            height: auto;
-            margin-top: 20px;
+        .submit-btn:hover, .download-btn:hover {
+            background-color: #218838;
         }
     </style>
 </head>
@@ -122,63 +105,59 @@
             <li><a href="من نحن؟.html">من نحن؟</a></li>
             <li><a href="تسجيل الدخول.html" class="login-btn">تسجيل دخول</a></li>
             <li><a href="output.html">الفاتورة</a></li>
+            <li><a href="تحليل الفاتورة.html">تحليل الفاتورة</a></li>
             <li><a href="اشترك معنا.html">اشتراك معنا</a></li>
         </ul>
     </div>
 
-    <div class="content">
-        <!-- قسم التحميل -->
-        <div class="upload-section">
-            <p>ارفع فاتورتك وضع النظام ينجز العمل نيابةً عنك!</p>
-            <label for="file-upload">اسحب الملف وأفلته هنا</label>
-            <input type="file" id="file-upload" accept="image/*">
-            
-            <!-- نموذج للزر لتحليل الفاتورة -->
-            <form action="تحليل الفاتورة.html" method="get">
-                <button type="submit" class="analyze-btn">تحليل الفاتورة</button>
-            </form>
+    <div class="output-container">
+        <div>
+            <img id="invoiceImage" src="https://i.ibb.co/jrgw0LM/image.png" alt="صورة الفاتورة" class="invoice-image">
         </div>
-
-        <!-- قسم المخرجات -->
         <div class="output-section">
             <h2>البيانات المستخرجة</h2>
-            <p>هنا سيتم عرض البيانات المستخرجة من الفاتورة.</p>
-            <button id="download-pdf" class="download-btn">تحميل الفاتورة بصيغة .pdf</button>
-            <!-- عرض الصورة المحملة -->
-           
+
+            <div class="invoice-form">
+                <p>اسم الشركة: شركة X</p>
+                <p>رقم الفاتورة: #1234</p>
+                <p>التاريخ: 2024/02/09</p>
+                <p>البيان: صيانة النظام المحاسبي</p>
+                <p>السعر: 500</p>
+                <p>الضريبة: 75</p>
+                <p>الإجمالي: 575</p>
+                <button class="submit-btn">حفظ</button>
+                <button class="download-btn" onclick="downloadPDF()">تحميل الفاتورة بصيغة .pdf</button>
+            </div>
         </div>
     </div>
 
-    <!-- تضمين مكتبة jsPDF -->
+    <!-- Script to generate and download PDF with image -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <script>
-        const fileUpload = document.getElementById('file-upload');
-        const uploadedImage = document.getElementById('uploaded-image');
-        const downloadPdfBtn = document.getElementById('download-pdf');
-
-        fileUpload.addEventListener('change', function(event) {
-            const file = event.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    uploadedImage.src = e.target.result;
-                    uploadedImage.style.display = 'block';
-                }
-                reader.readAsDataURL(file);
-            }
-        });
-
-        downloadPdfBtn.addEventListener('click', function() {
+        function downloadPDF() {
             const { jsPDF } = window.jspdf;
-            const pdf = new jsPDF();
+            const doc = new jsPDF();
 
-            if (uploadedImage.src) {
-                pdf.addImage(uploadedImage.src, 'JPEG', 15, 40, 180, 160);
-                pdf.save("فاتورة.pdf");
-            } else {
-                alert("الرجاء تحميل صورة الفاتورة أولاً.");
-            }
-        });
+            // إضافة النصوص إلى ملف PDF
+            doc.setFontSize(12);
+            doc.text("الفاتورة", 105, 10, { align: "center" });
+            doc.setFontSize(10);
+            doc.text("اسم الشركة: شركة X", 10, 30);
+            doc.text("رقم الفاتورة: #1234", 10, 40);
+            doc.text("التاريخ: 2024/02/09", 10, 50);
+            doc.text("البيان: صيانة النظام المحاسبي", 10, 60);
+            doc.text("السعر: 500", 10, 70);
+            doc.text("الضريبة: 75", 10, 80);
+            doc.text("الإجمالي: 575", 10, 90);
+
+            // إضافة صورة الفاتورة باستخدام html2canvas
+            html2canvas(document.getElementById("invoiceImage")).then(canvas => {
+                const imgData = canvas.toDataURL("image/png");
+                doc.addImage(imgData, "PNG", 10, 100, 180, 80); // ضبط أبعاد الصورة
+                doc.save("فاتورة.pdf");
+            });
+        }
     </script>
 
 </body>
