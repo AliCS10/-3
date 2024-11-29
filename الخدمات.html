@@ -40,37 +40,50 @@
         .content {
             padding: 40px;
         }
-        .content h2 {
-            font-size: 36px;
-            color: #2c3e75;
-        }
         .services {
             display: flex;
             justify-content: center;
             gap: 20px;
             flex-wrap: wrap;
             padding: 20px;
-            background-image: url('path-to-background-image.png'); /* ضع رابط صورة الخلفية هنا */
-            background-size: cover;
-            background-position: center;
-            border-radius: 10px; /* اختياري لإضافة زوايا منحنية */
         }
         .service-box {
             text-align: center;
-            max-width: 200px;
-            background-color: #fff;
+            width: 220px;
+            height: 260px;
+            background-color: #E8E9F2;
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
         }
-        .service-box img {
-            width: 100%;
-            height: auto;
-            max-width: 100px; /* ضبط الحجم الافتراضي لجميع الصور */
+        .circle {
+            width: 80px;
+            height: 80px;
+            background-color: #9EA1C9; /* اللون الداخلي */
+            border: 2px solid #fff; /* تغيير اللون إلى الأبيض */
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
-        .small-image {
-            max-width: 80px;
-            height: auto;
+        .circle img {
+            width: 50%;
+            height: 50%;
+            object-fit: contain;
+        }
+        .service-box h3 {
+            color: #2c3e75;
+            font-size: 18px;
+            margin: 10px 0;
+        }
+        .service-box p {
+            color: #000; /* لون النص الأسود */
+            font-size: 14px;
+            line-height: 1.5;
         }
     </style>
 </head>
@@ -83,7 +96,6 @@
             <li><a href="من نحن؟.html">من نحن؟</a></li>
             <li><a href="تسجيل الدخول.html" class="login-btn">تسجيل دخول</a></li>
             <li><a href="output.html">الفاتورة</a></li>
-      
             <li><a href="اشترك معنا.html">اشتراك معنا</a></li>
         </ul>
     </div>
@@ -91,22 +103,30 @@
     <div class="content">
         <div class="services">
             <div class="service-box">
-                <img src="https://cdn.pixabay.com/photo/2017/02/14/07/54/sale-2065116_960_720.jpg" alt="مبيعات" class="small-image">
+                <div class="circle">
+                    <img src="https://www.aromatierra.com/cdn/shop/files/cash.png?v=1642082410&width=3200.jpg" alt="مبيعات">
+                </div>
                 <h3>المبيعات</h3>
                 <p>رفع فواتير المبيعات الصادرة للعملاء</p>
             </div>
             <div class="service-box">
-                <img src="https://png.pngtree.com/element_our/20200702/ourlarge/pngtree-shopping-cart-collection-icon-image_2286418.jpg" alt="مشتريات" class="small-image">
+                <div class="circle">
+                    <img src="https://cdn-icons-png.freepik.com/256/16145/16145395.png" alt="مشتريات">
+                </div>
                 <h3>المشتريات</h3>
                 <p>رفع فواتير مشترياتك</p>
             </div>  
             <div class="service-box">
-                <img src="https://st2.depositphotos.com/1014014/5774/i/450/depositphotos_57744063-stock-photo-bonds-sign-business-graph-illustration.jpg" alt="السندات" class="small-image">
+                <div class="circle">
+                    <img src="https://cdn.icon-icons.com/icons2/3251/PNG/512/certificate_regular_icon_202985.png" alt="السندات">
+                </div>
                 <h3>السندات</h3>
                 <p>رفع سندات القبض والصرف</p>
             </div>
             <div class="service-box">
-                <img src="https://www.realityhr.co.uk/wp-content/uploads/RHR-employment-contracts-blog.png" alt="عقود" class="small-image">
+                <div class="circle">
+                    <img src="https://cdn-icons-png.freepik.com/512/14073/14073761.png" alt="عقود">
+                </div>
                 <h3>العقود</h3>
                 <p>رفع العقود المبرمة</p>
             </div>
