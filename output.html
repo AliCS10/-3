@@ -13,9 +13,10 @@
             text-align: center;
         }
         .navbar {
-            background-color: #2c3e75;
+            background-color: #222663; /* اللون الجديد */
             padding: 20px;
             color: #fff;
+            position: relative; /* لإضافة الشعار */
         }
         .navbar ul {
             list-style-type: none;
@@ -26,7 +27,6 @@
             margin-left: 20px;
             font-size: 18px;
         }
-        
         .navbar ul li a {
             color: #fff;
             text-decoration: none;
@@ -37,6 +37,13 @@
             border-radius: 5px;
             color: white;
             text-decoration: none;
+        }
+        .logo {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            width: 100px; /* حجم الشعار */
+            height: auto;
         }
         .content {
             padding: 40px;
@@ -64,10 +71,10 @@
             display: none;
         }
         .upload-section label {
-            color: #2c3e75;
+            color: #222663; /* اللون الجديد */
             font-size: 16px;
             cursor: pointer;
-            border: 1px solid #2c3e75;
+            border: 1px solid #222663; /* اللون الجديد */
             padding: 10px 20px;
             border-radius: 5px;
             margin-top: 20px;
@@ -91,7 +98,7 @@
             border: 1px solid #ddd;
         }
         .output-section h2 {
-            color: #2c3e75;
+            color: #222663; /* اللون الجديد */
             font-size: 20px;
             border-bottom: 1px solid #ddd;
             padding-bottom: 10px;
@@ -116,6 +123,7 @@
 <body>
 
     <div class="navbar">
+        <img src="https://i.ibb.co/VTH1BHw/Logo.png" alt="شعار دقة" class="logo">
         <ul>
             <li><a href="index.html">الصفحة الرئيسية</a></li>
             <li><a href="الخدمات.html">الخدمات</a></li>
@@ -144,8 +152,6 @@
             <h2>البيانات المستخرجة</h2>
             <p>هنا سيتم عرض البيانات المستخرجة من الفاتورة.</p>
             <button id="download-pdf" class="download-btn">تحميل الفاتورة بصيغة .pdf</button>
-            <!-- عرض الصورة المحملة -->
-           
         </div>
     </div>
 
@@ -153,7 +159,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
     <script>
         const fileUpload = document.getElementById('file-upload');
-        const uploadedImage = document.getElementById('uploaded-image');
         const downloadPdfBtn = document.getElementById('download-pdf');
 
         fileUpload.addEventListener('change', function(event) {
