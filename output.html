@@ -117,6 +117,7 @@
             max-width: 100%;
             height: auto;
             margin-top: 20px;
+            display: none; /* مخفي في البداية */
         }
     </style>
 </head>
@@ -130,7 +131,7 @@
             <li><a href="من نحن؟.html">من نحن؟</a></li>
             <li><a href="تسجيل الدخول.html" class="login-btn">تسجيل دخول</a></li>
             <li><a href="output.html">الفاتورة</a></li>
-            <li><a href="اشترك معنا.html">اشتراك معنا</a></li>
+            <li><a href="اشترك معنا.html">اشترك معنا</a></li>
         </ul>
     </div>
 
@@ -147,19 +148,16 @@
             </form>
         </div>
 
-        <!-- قسم المخرجات -->
+        <!-- قسم عرض الصورة المرفوعة -->
         <div class="output-section">
-            <h2>البيانات المستخرجة</h2>
-            <p>هنا سيتم عرض البيانات المستخرجة من الفاتورة.</p>
-            <button id="download-pdf" class="download-btn">تحميل الفاتورة بصيغة .pdf</button>
+            <h2>الصورة المرفوعة</h2>
+            <img id="uploaded-image" alt="صورة الفاتورة">
         </div>
     </div>
 
-    <!-- تضمين مكتبة jsPDF -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
     <script>
         const fileUpload = document.getElementById('file-upload');
-        const downloadPdfBtn = document.getElementById('download-pdf');
+        const uploadedImage = document.getElementById('uploaded-image');
 
         fileUpload.addEventListener('change', function(event) {
             const file = event.target.files[0];
@@ -167,25 +165,12 @@
                 const reader = new FileReader();
                 reader.onload = function(e) {
                     uploadedImage.src = e.target.result;
-                    uploadedImage.style.display = 'block';
+                    uploadedImage.style.display = 'block'; // عرض الصورة
                 }
                 reader.readAsDataURL(file);
-            }
-        });
-
-        downloadPdfBtn.addEventListener('click', function() {
-            const { jsPDF } = window.jspdf;
-            const pdf = new jsPDF();
-
-            if (uploadedImage.src) {
-                pdf.addImage(uploadedImage.src, 'JPEG', 15, 40, 180, 160);
-                pdf.save("فاتورة.pdf");
-            } else {
-                alert("الرجاء تحميل صورة الفاتورة أولاً.");
             }
         });
     </script>
 
 </body>
 </html>
-
