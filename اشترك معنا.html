@@ -67,6 +67,11 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            transition: transform 0.3s, box-shadow 0.3s; /* تأثير الحركة */
+        }
+        .service-box:hover {
+            transform: translateY(-10px); /* تحريك الصندوق لأعلى */
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); /* زيادة الظل */
         }
         .service-box h1 {
             color: #222663; /* اللون الجديد */
@@ -97,7 +102,7 @@
             <li><a href="من نحن؟.html">من نحن؟</a></li>
             <li><a href="تسجيل الدخول.html" class="login-btn">تسجيل دخول</a></li>
             <li><a href="output.html">الفاتورة</a></li>
-            <li><a href="اشترك معنا.html">اشتراك معنا</a></li>
+            <li><a href="اشترك معنا.html">اشترك معنا</a></li>
         </ul>
     </div>
 
