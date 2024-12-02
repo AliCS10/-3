@@ -31,13 +31,6 @@
             color: #fff;
             text-decoration: none;
         }
-        .navbar .login-btn {
-            background-color: #28a745;
-            padding: 10px 20px;
-            border-radius: 5px;
-            color: white;
-            text-decoration: none;
-        }
         .logo {
             position: absolute;
             top: 10px;
@@ -48,23 +41,12 @@
         .content {
             padding: 40px;
         }
-        .content h2 {
-            font-size: 36px;
-            color: #222663; /* اللون الجديد */
-            margin-bottom: 20px;
-        }
-        .content p {
-            font-size: 18px;
-            color: #555;
-            margin-bottom: 30px;
-        }
         .login-form {
             max-width: 400px;
             margin: 0 auto;
             text-align: right;
         }
-        .login-form input[type="email"],
-        .login-form input[type="password"] {
+        .login-form input {
             width: 100%;
             padding: 12px;
             margin: 10px 0;
@@ -75,7 +57,7 @@
         .login-form button {
             width: 100%;
             padding: 12px;
-            background-color: #28a745;
+            background-color: #007bff;
             color: #fff;
             border: none;
             border-radius: 5px;
@@ -83,7 +65,7 @@
             cursor: pointer;
         }
         .login-form button:hover {
-            background-color: #218838;
+            background-color: #0056b3;
         }
     </style>
 </head>
@@ -95,28 +77,31 @@
             <li><a href="index.html">الصفحة الرئيسية</a></li>
             <li><a href="الخدمات.html">الخدمات</a></li>
             <li><a href="من نحن؟.html">من نحن؟</a></li>
-            <li><a href="تسجيل الدخول.html" class="login-btn">تسجيل دخول</a></li>
+            <li><a href="تسجيل حساب جديد.html">تسجيل حساب جديد</a></li>
             <li><a href="output.html">الفاتورة</a></li>
-            <li><a href="اشترك معنا.html">اشتراك معنا</a></li>
+            <li><a href="اشترك معنا.html">اشترك معنا</a></li>
         </ul>
     </div>
 
     <div class="content">
         <h2>تسجيل دخول</h2>
-        <p>الرجاء إدخال بياناتك لتسجيل الدخول إلى النظام.</p>
+        <p>الرجاء إدخال بياناتك لتسجيل الدخول.</p>
         <div class="login-form">
-            <form action="dashboard.html" method="POST">
+            <form action="login.php" method="POST">
                 <label for="email">البريد الإلكتروني</label>
                 <input type="email" id="email" name="email" placeholder="أدخل بريدك الإلكتروني" required>
                 
                 <label for="password">كلمة المرور</label>
                 <input type="password" id="password" name="password" placeholder="أدخل كلمة المرور" required>
                 
-                <button type="submit">تسجيل الدخول</button>
+                <button type="submit">تسجيل دخول</button>
             </form>
+            <div class="register-link">
+                <span>ليس لديك حساب؟ </span>
+                <a href="تسجيل حساب جديد.html">قم بإنشاء حساب جديد الآن</a>
+            </div>
         </div>
     </div>
 
 </body>
 </html>
-
