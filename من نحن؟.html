@@ -13,7 +13,7 @@
             text-align: center;
         }
         .navbar {
-            background-color: #222663; /* اللون الجديد */
+            background-color: #222663;
             padding: 20px;
             color: #fff;
             position: relative;
@@ -42,7 +42,7 @@
             position: absolute;
             top: 10px;
             right: 20px;
-            width: 100px; /* حجم الشعار */
+            width: 100px;
             height: auto;
         }
         .content {
@@ -50,21 +50,88 @@
         }
         .content h1 {
             font-size: 48px;
-            color: #222663; /* اللون الجديد */
+            color: #222663;
             margin: 0;
         }
         .content h3 {
             font-size: 24px;
             color: #555;
-            margin: 10px 0 60px; /* زيادة المسافة أسفل العنوان الفرعي */
+            margin: 10px 0 60px;
+        }
+        .team-box {
+            background-color: #222663;
+            color: #fff;
+            padding: 10px;
+            border-radius: 8px;
+            margin: 20px auto;
+            text-align: center;
+            width: 300px; /* Smaller box width */
+        }
+        .team-box h2 {
+            margin: 0;
+            font-size: 20px;
+            color: #fff;
+        }
+        .team-box ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 10px 0 0;
+        }
+        .team-box ul li {
+            font-size: 16px;
+            margin: 5px 0;
+        }
+        .team {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+            gap: 20px;
+        }
+        .team-member {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 220px;
+            text-align: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+            position: relative;
+            overflow: hidden;
+        }
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+        .team-member img {
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            margin-bottom: 10px;
+            transition: transform 0.3s;
+        }
+        .team-member img:hover {
+            transform: scale(1.1);
+        }
+        .team-member h4, .team-member p {
+            transition: color 0.3s, transform 0.3s;
+        }
+        .team-member:hover h4 {
+            color: #28a745;
+            transform: scale(1.1);
+        }
+        .team-member:hover p {
+            color: #ff5722;
+            transform: scale(1.1);
         }
         .footer {
-            background-color: #222663; /* اللون الجديد */
+            background-color: #222663;
             color: #fff;
             padding: 20px;
             position: fixed;
             width: 100%;
             bottom: 0;
+            z-index: 10;
         }
         .footer-content {
             display: flex;
@@ -83,6 +150,9 @@
             margin: 5px 0;
             font-size: 14px;
         }
+        .spacer {
+            height: 100px;
+        }
     </style>
 </head>
 <body>
@@ -95,14 +165,64 @@
             <li><a href="من نحن؟.html">من نحن؟</a></li>
             <li><a href="تسجيل الدخول.html" class="login-btn">تسجيل دخول</a></li>
             <li><a href="output.html">الفاتورة</a></li>
-            <li><a href="اشترك معنا.html">اشتراك معنا</a></li>
+            <li><a href="اشترك معنا.html">اشترك معنا</a></li>
         </ul>
     </div>
 
     <div class="content">
         <h1>نظام دقــــــة</h1>
         <h3>“لأن الوقت مهم دقتنا تصنع الفارق"</h3>
+        <h2>“نظام ذكاء اصطناعي يساعد على تحليل الفواتير واستخراج وتحديد البيانات المحاسبية باستخدام النماذج اللغوية الكبيرة”</h2>
+        <div class="team-box" style="background: linear-gradient(135deg, #222663, #4a4e8f); color: #fff; padding: 15px 20px; border-radius: 15px; margin: 20px auto; text-align: center; width: 350px; box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); position: relative; overflow: hidden; transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 12px 25px rgba(0, 0, 0, 0.4)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 8px 20px rgba(0, 0, 0, 0.3)';">
+            <h2 style="margin: 0; font-size: 24px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; color: #fff; background: linear-gradient(90deg, #28a745, #fff); 
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: shine 3s linear infinite;">فريق العمل :</h2>
+        </div>
+        
+        <style>
+            @keyframes shine {
+                0% { background-position: -200%; }
+                100% { background-position: 200%; }
+            }
+        </style>
+        
+        <style>
+            @keyframes shine {
+                0% { background-position: -200%; }
+                100% { background-position: 200%; }
+            }
+        </style>
+        
+
+        <div class="team">
+            <div class="team-member">
+                <img src="https://i.postimg.cc/jdNqXMmZ/image.jpg" alt="أحمد خلوي">
+                <h4>أحمد خلوي</h4>
+                <p>202300755</p>
+            </div>
+            <div class="team-member">
+                <img src="https://i.postimg.cc/9MRHfMjJ/image.jpg" alt="علي حبيب">
+                <h4>علي ال حبيب</h4>
+                <p>202310060</p>
+            </div>
+            <div class="team-member">
+                <img src="https://i.postimg.cc/QCGwxJmd/image.jpg" alt="أحمد الخالدي">
+                <h4>أحمد الخالدي</h4>
+                <p>202301097</p>
+            </div>
+            <div class="team-member">
+                <img src="https://i.postimg.cc/wT94fvbZ/image.jpg" alt="مهدي كعبي">
+                <h4>مهدي كعبي</h4>
+                <p>2023011679</p>
+            </div>
+            <div class="team-member">
+                <img src="https://i.postimg.cc/nrn8G1Dw/266033.png" alt="ماجد شناق">
+                <h4>ماجد شناق</h4>
+                <p>202301343</p>
+            </div>
+        </div>
     </div>
+    
+    <div class="spacer"></div>
 
     <div class="footer">
         <div class="footer-content">
@@ -114,4 +234,3 @@
 
 </body>
 </html>
-
