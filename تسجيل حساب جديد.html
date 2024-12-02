@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسجيل حساب جديد</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+        .navbar {
+            background-color: #222663; /* اللون الجديد */
+            padding: 20px;
+            color: #fff;
+            position: relative; /* لإضافة الشعار */
+        }
+        .navbar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .navbar ul li {
+            display: inline;
+            margin-left: 20px;
+            font-size: 18px;
+        }
+        .navbar ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+        .logo {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            width: 100px; /* حجم الشعار */
+            height: auto;
+        }
+        .content {
+            padding: 40px;
+        }
+        .register-form {
+            max-width: 400px;
+            margin: 0 auto;
+            text-align: right;
+        }
+        .register-form input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .register-form button {
+            width: 100%;
+            padding: 12px;
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        .register-form button:hover {
+            background-color: #218838;
+        }
+        .login-link {
+            display: block;
+            margin-top: 20px;
+            text-align: center;
+            font-size: 14px;
+            color: #555;
+        }
+        .login-link a {
+            color: #222663;
+            text-decoration: none;
+        }
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <img src="https://i.ibb.co/VTH1BHw/Logo.png" alt="شعار دقة" class="logo">
+        <ul>
+            <li><a href="index.html">الصفحة الرئيسية</a></li>
+            <li><a href="الخدمات.html">الخدمات</a></li>
+            <li><a href="من نحن؟.html">من نحن؟</a></li>
+            <li><a href="تسجيل الدخول.html" class="login-btn">تسجيل دخول</a></li>
+            <li><a href="output.html">الفاتورة</a></li>
+            <li><a href="اشترك معنا.html">اشترك معنا</a></li>
+        </ul>
+    </div>
+
+    <div class="content">
+        <h2>تسجيل حساب جديد</h2>
+        <p>الرجاء إدخال بياناتك لإنشاء حساب جديد.</p>
+        <div class="register-form">
+            <form action="register.php" method="POST">
+                <label for="email">البريد الإلكتروني</label>
+                <input type="email" id="email" name="email" placeholder="أدخل بريدك الإلكتروني" required>
+                
+                <label for="password">كلمة المرور</label>
+                <input type="password" id="password" name="password" placeholder="أدخل كلمة المرور" required>
+                
+                <button type="submit">تسجيل</button>
+            </form>
+            <div class="login-link">
+                <span>هل لديك حساب بالفعل؟ </span>
+                <a href="تسجيل الدخول.html">قم بتسجيل الدخول الآن</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
