@@ -13,10 +13,10 @@
             text-align: center;
         }
         .navbar {
-            background-color: #222663; /* اللون الجديد */
+            background-color: #222663;
             padding: 20px;
             color: #fff;
-            position: relative; /* لإضافة الشعار */
+            position: relative;
         }
         .navbar ul {
             list-style-type: none;
@@ -42,7 +42,7 @@
             position: absolute;
             top: 10px;
             right: 20px;
-            width: 100px; /* حجم الشعار */
+            width: 100px;
             height: auto;
         }
         .content {
@@ -67,6 +67,11 @@
             flex-direction: column;
             justify-content: space-between;
             align-items: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .service-box:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
         }
         .circle {
             width: 80px;
@@ -77,19 +82,28 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .service-box:hover .circle {
+            background-color: #222663;
+            transform: rotate(360deg);
         }
         .circle img {
             width: 50%;
             height: 50%;
             object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+        .service-box:hover .circle img {
+            transform: scale(1.2);
         }
         .service-box h3 {
-            color: #222663; /* اللون الجديد */
+            color:  #222663;
             font-size: 18px;
             margin: 10px 0;
         }
         .service-box p {
-            color: #000; /* لون النص الأسود */
+            color: #000;
             font-size: 14px;
             line-height: 1.5;
         }
@@ -105,7 +119,7 @@
             <li><a href="من نحن؟.html">من نحن؟</a></li>
             <li><a href="تسجيل الدخول.html" class="login-btn">تسجيل دخول</a></li>
             <li><a href="output.html">الفاتورة</a></li>
-            <li><a href="اشترك معنا.html">اشتراك معنا</a></li>
+            <li><a href="اشترك معنا.html">اشترك معنا</a></li>
         </ul>
     </div>
 
