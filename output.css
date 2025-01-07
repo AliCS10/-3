@@ -1,3 +1,4 @@
+/* إعدادات عامة */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -6,101 +7,134 @@ body {
     text-align: center;
 }
 .navbar {
-    background-color: #222663; 
-    padding: 20px;
+    background-color: #222663;
+    padding: 10px 20px;
     color: #fff;
-    position: relative; 
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
 }
+
 .navbar ul {
     list-style-type: none;
     padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
 }
+
 .navbar ul li {
-    display: inline;
-    margin-left: 20px;
-    font-size: 18px;
+    margin: 5px;
+    font-size: 16px;
 }
+
 .navbar ul li a {
     color: #fff;
     text-decoration: none;
 }
+
 .navbar .login-btn {
     background-color: #28a745;
-    padding: 10px 20px;
+    padding: 10px 15px;
     border-radius: 5px;
     color: white;
     text-decoration: none;
 }
+
 .logo {
-    position: absolute;
-    top: 10px;
-    right: 20px;
-    width: 100px; /* حجم الشعار */
+    width: 80px;
     height: auto;
+    margin-bottom: 10px;
 }
+
+/* المحتوى الأساسي */
 .content {
-    padding: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 40px;
-}
-.upload-section {
-    border: 2px dashed #aaa;
-    padding: 40px;
-    width: 300px;
-    height: 400px;
+    padding: 20px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    gap: 20px;
+}
+
+.upload-section, .output-section {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    border: 2px dashed #aaa;
+    padding: 20px;
     background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
-.upload-section p {
-    font-size: 18px;
-    color: #333;
-}
-.upload-section input[type="file"] {
-    display: none;
-}
-.upload-section label {
-    color: #222663; 
+
+.upload-section label, .analyze-btn, .capture-btn {
+    display: block;
+    width: 100%;
+    margin-top: 10px;
     font-size: 16px;
-    cursor: pointer;
-    border: 1px solid #222663; 
-    padding: 10px 20px;
+    padding: 10px;
+    text-align: center;
     border-radius: 5px;
-    margin-top: 20px;
-}
-.analyze-btn, .capture-btn {
-    margin-top: 20px;
+    border: none;
     background-color: #28a745;
     color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
     cursor: pointer;
-    text-decoration: none;
 }
-.analyze-btn:hover, .capture-btn:hover {
+
+.upload-section label:hover, .analyze-btn:hover, .capture-btn:hover {
     background-color: #218838;
 }
-.output-section {
-    text-align: left;
-    width: 300px;
-    background-color: #fff;
-    padding: 20px;
-    border: 1px solid #ddd;
-}
+
 .output-section h2 {
     color: #222663;
-    font-size: 20px;
-    border-bottom: 1px solid #ddd;
-    padding-bottom: 10px;
+    font-size: 18px;
+    margin-bottom: 10px;
+    text-align: center;
 }
+
 #uploaded-image, #camera-stream {
     max-width: 100%;
     height: auto;
-    margin-top: 20px;
+    margin-top: 15px;
+}
+
+/* قواعد خاصة بالأجهزة المحمولة */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .navbar ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .navbar ul li {
+        margin: 10px 0;
+    }
+
+    .content {
+        padding: 10px;
+    }
+
+    .upload-section, .output-section {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar ul li {
+        font-size: 14px;
+    }
+
+    .upload-section label, .analyze-btn, .capture-btn {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .output-section h2 {
+        font-size: 16px;
+    }
 }
