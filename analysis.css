@@ -5,25 +5,30 @@ body {
     background-color: #f4f4f4;
     text-align: center;
 }
+
 .navbar {
     background-color: #222663; /* اللون الجديد */
     padding: 20px;
     color: #fff;
     position: relative; /* لإضافة الشعار */
 }
+
 .navbar ul {
     list-style-type: none;
     padding: 0;
 }
+
 .navbar ul li {
     display: inline;
     margin-left: 20px;
     font-size: 18px;
 }
+
 .navbar ul li a {
     color: #fff;
     text-decoration: none;
 }
+
 .navbar .login-btn {
     background-color: #28a745;
     padding: 10px 20px;
@@ -31,6 +36,7 @@ body {
     color: white;
     text-decoration: none;
 }
+
 .logo {
     position: absolute;
     top: 10px;
@@ -38,6 +44,7 @@ body {
     width: 100px; /* حجم الشعار */
     height: auto;
 }
+
 .output-container {
     display: flex;
     justify-content: center;
@@ -45,6 +52,7 @@ body {
     height: 80vh;
     padding: 20px;
 }
+
 .invoice-image {
     width: 300px; /* تم تقليص العرض إلى 300px */
     height: auto;
@@ -52,6 +60,7 @@ body {
     border-radius: 8px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
+
 .output-section {
     text-align: right;
     width: 300px;
@@ -61,6 +70,7 @@ body {
     margin-right: 20px;
     border-radius: 8px;
 }
+
 .output-section h2 {
     color: #222663; /* اللون الجديد */
     font-size: 18px;
@@ -68,10 +78,12 @@ body {
     padding-bottom: 8px;
     margin-bottom: 15px;
 }
+
 .invoice-form {
     text-align: right;
     direction: rtl;
 }
+
 .invoice-form p {
     display: block;
     font-size: 14px;
@@ -79,8 +91,9 @@ body {
     text-align: right;
     color: #333;
 }
-.submit-btn, .download-btn {
-    background-color: #28a745;
+
+.submit-btn, .download-btn, .excel-btn {
+    background-color: #28a745; /* اللون الأخضر */
     color: #fff;
     padding: 8px;
     font-size: 14px;
@@ -90,6 +103,7 @@ body {
     width: calc(100% - 20px);
     margin-top: 10px;
 }
-.submit-btn:hover, .download-btn:hover {
-    background-color: #218838;
+
+.submit-btn:hover, .download-btn:hover, .excel-btn:hover {
+    background-color: #218838; /* لون أغمق عند التمرير */
 }
