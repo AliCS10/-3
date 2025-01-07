@@ -20,7 +20,7 @@
             <li><a href="اشترك معنا.html">اشترك معنا</a></li>
             <li><a href="dashboard.html">لوحة المعلومات</a></li>
         </ul>
-        
+
     </div>
 
     <div class="output-container">
@@ -30,21 +30,25 @@
         <div class="output-section">
             <h2>البيانات المستخرجة</h2>
             <div class="invoice-form">
-                <p>اسم الشركة: شركة X</p>
-                <p>رقم الفاتورة: #1234</p>
-                <p>التاريخ: 2024/02/09</p>
-                <p>البيان: صيانة النظام المحاسبي</p>
-                <p>السعر: 500</p>
-                <p>الضريبة: 75</p>
-                <p>الإجمالي: 575</p>
-                <button class="submit-btn" onclick="saveData()">حفظ</button>
+                <p id="invoiceDetails">
+                    اسم الشركة: شركة X<br>
+                    رقم الفاتورة: #1234<br>
+                    التاريخ: 2024/02/09<br>
+                    البيان: صيانة النظام المحاسبي<br>
+                    السعر: 500<br>
+                    الضريبة: 75<br>
+                    الإجمالي: 575
+                </p>
+                <button class="submit-btn" onclick="copyToClipboard()">نسخ البيانات</button>
                 <button class="download-btn" onclick="downloadPDF()">تحميل الفاتورة بصيغة .pdf</button>
+                <button class="excel-btn" onclick="saveToExcel()">حفظ كملف Excel</button>
             </div>
         </div>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
     <script>
         function downloadPDF() {
             const { jsPDF } = window.jspdf;
@@ -55,7 +59,6 @@
                 putOnlyUsedFonts: true,
                 floatPrecision: 16 // عدد النقاط العشرية
             });
-            // إضافة الصورة
             const imgUrl = "https://i.ibb.co/rpsXFZd/image.png";
             const img = new Image();
             img.src = imgUrl;
@@ -68,8 +71,31 @@
             };
         }
 
-        function saveData() {
-            alert("تم حفظ المعلومات بنجاح في نظامك المحاسبي");
+        function copyToClipboard() {
+            const invoiceDetails = document.getElementById("invoiceDetails").innerText;
+            navigator.clipboard.writeText(invoiceDetails).then(() => {
+                alert("تم نسخ البيانات بنجاح!");
+            }).catch(err => {
+                alert("حدث خطأ أثناء نسخ البيانات: " + err);
+            });
+        }
+
+        function saveToExcel() {
+            // بيانات الفاتورة
+            const invoiceData = [
+                ["اسم الشركة", "رقم الفاتورة", "التاريخ", "البيان", "السعر", "الضريبة", "الإجمالي"],
+                ["شركة X", "#1234", "2024/02/09", "صيانة النظام المحاسبي", "500", "75", "575"]
+            ];
+
+            // إنشاء ورقة عمل
+            const worksheet = XLSX.utils.aoa_to_sheet(invoiceData);
+
+            // إنشاء مصنف (Workbook)
+            const workbook = XLSX.utils.book_new();
+            XLSX.utils.book_append_sheet(workbook, worksheet, "فاتورة");
+
+            // حفظ الملف
+            XLSX.writeFile(workbook, "فاتورة.xlsx");
         }
     </script>
 
