@@ -1,0 +1,114 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+.navbar {
+    background-color: #222663; 
+    padding: 20px;
+    color: #fff;
+    position: relative; 
+}
+.navbar ul {
+    list-style-type: none;
+    padding: 0;
+}
+.navbar ul li {
+    display: inline;
+    margin-left: 20px;
+    font-size: 18px;
+}
+.navbar ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+.navbar .login-btn {
+    background-color: #28a745;
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: white;
+    text-decoration: none;
+}
+.logo {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    width: 100px; /* حجم الشعار */
+    height: auto;
+}
+.content {
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+.upload-section {
+    border: 2px dashed #aaa;
+    padding: 40px;
+    width: 300px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+}
+.upload-section p {
+    font-size: 18px;
+    color: #333;
+}
+.upload-section input[type="file"] {
+    display: none;
+}
+.upload-section label {
+    color: #222663; 
+    font-size: 16px;
+    cursor: pointer;
+    border: 1px solid #222663; 
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+.analyze-btn {
+    margin-top: 20px;
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none;
+}
+.output-section {
+    text-align: left;
+    width: 300px;
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+}
+.output-section h2 {
+    color: #222663;
+    font-size: 20px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+.download-btn {
+    margin-top: 20px;
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+#uploaded-image {
+    max-width: 100%;
+    height: auto;
+    margin-top: 20px;
+    display: none; /* مخفي في البداية */
+}

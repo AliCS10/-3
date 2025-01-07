@@ -1,0 +1,95 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+.navbar {
+    background-color: #222663; /* اللون الجديد */
+    padding: 20px;
+    color: #fff;
+    position: relative; /* لإضافة الشعار */
+}
+.navbar ul {
+    list-style-type: none;
+    padding: 0;
+}
+.navbar ul li {
+    display: inline;
+    margin-left: 20px;
+    font-size: 18px;
+}
+.navbar ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+.navbar .login-btn {
+    background-color: #28a745;
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: white;
+    text-decoration: none;
+}
+.logo {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    width: 100px; /* حجم الشعار */
+    height: auto;
+}
+.output-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 80vh;
+    padding: 20px;
+}
+.invoice-image {
+    width: 300px; /* تم تقليص العرض إلى 300px */
+    height: auto;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+.output-section {
+    text-align: right;
+    width: 300px;
+    padding: 20px;
+    background-color: #fff; 
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    margin-right: 20px;
+    border-radius: 8px;
+}
+.output-section h2 {
+    color: #222663; /* اللون الجديد */
+    font-size: 18px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 8px;
+    margin-bottom: 15px;
+}
+.invoice-form {
+    text-align: right;
+    direction: rtl;
+}
+.invoice-form p {
+    display: block;
+    font-size: 14px;
+    margin: 8px auto;
+    text-align: right;
+    color: #333;
+}
+.submit-btn, .download-btn {
+    background-color: #28a745;
+    color: #fff;
+    padding: 8px;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: calc(100% - 20px);
+    margin-top: 10px;
+}
+.submit-btn:hover, .download-btn:hover {
+    background-color: #218838;
+}

@@ -1,0 +1,102 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+.navbar {
+    background-color: #222663;
+    padding: 20px;
+    color: #fff;
+    position: relative;
+}
+.navbar ul {
+    list-style-type: none;
+    padding: 0;
+}
+.navbar ul li {
+    display: inline;
+    margin-left: 20px;
+    font-size: 18px;
+}
+.navbar ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+.navbar .login-btn {
+    background-color: #28a745;
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: white;
+    text-decoration: none;
+}
+.logo {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    width: 100px;
+    height: auto;
+}
+.content {
+    padding: 40px;
+}
+.services {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+.service-box {
+    text-align: center;
+    width: 220px;
+    height: 260px;
+    background-color: #E8E9F2;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.service-box:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+}
+.circle {
+    width: 80px;
+    height: 80px;
+    background-color: #9EA1C9;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.service-box:hover .circle {
+    background-color: #222663;
+    transform: rotate(360deg);
+}
+.circle img {
+    width: 50%;
+    height: 50%;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+.service-box:hover .circle img {
+    transform: scale(1.2);
+}
+.service-box h3 {
+    color:  #222663;
+    font-size: 18px;
+    margin: 10px 0;
+}
+.service-box p {
+    color: #000;
+    font-size: 14px;
+    line-height: 1.5;
+}

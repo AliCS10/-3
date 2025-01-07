@@ -1,0 +1,147 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+.navbar {
+    background-color: #222663;
+    padding: 20px;
+    color: #fff;
+    position: relative;
+}
+.navbar ul {
+    list-style-type: none;
+    padding: 0;
+}
+.navbar ul li {
+    display: inline;
+    margin-left: 20px;
+    font-size: 18px;
+}
+.navbar ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+.navbar .login-btn {
+    background-color: #28a745;
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: white;
+    text-decoration: none;
+}
+.logo {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    width: 100px;
+    height: auto;
+}
+.content {
+    padding: 40px;
+}
+.content h1 {
+    font-size: 48px;
+    color: #222663;
+    margin: 0;
+}
+.content h3 {
+    font-size: 24px;
+    color: #555;
+    margin: 10px 0 60px;
+}
+.team-box {
+    background-color: #222663;
+    color: #fff;
+    padding: 10px;
+    border-radius: 8px;
+    margin: 20px auto;
+    text-align: center;
+    width: 300px; /* Smaller box width */
+}
+.team-box h2 {
+    margin: 0;
+    font-size: 20px;
+    color: #fff;
+}
+.team-box ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 10px 0 0;
+}
+.team-box ul li {
+    font-size: 16px;
+    margin: 5px 0;
+}
+.team {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    gap: 20px;
+}
+.team-member {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 220px;
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+    position: relative;
+    overflow: hidden;
+}
+.team-member:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+.team-member img {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    margin-bottom: 10px;
+    transition: transform 0.3s;
+}
+.team-member img:hover {
+    transform: scale(1.1);
+}
+.team-member h4, .team-member p {
+    transition: color 0.3s, transform 0.3s;
+}
+.team-member:hover h4 {
+    color: #28a745;
+    transform: scale(1.1);
+}
+.team-member:hover p {
+    color: #ff5722;
+    transform: scale(1.1);
+}
+.footer {
+    background-color: #222663;
+    color: #fff;
+    padding: 20px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.footer-content h1 {
+    margin: 0;
+    font-size: 24px;
+}
+.footer-content h2 {
+    margin: 5px 0;
+    font-size: 16px;
+}
+.footer-content p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+.spacer {
+    height: 100px;
+}
