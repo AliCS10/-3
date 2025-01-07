@@ -3,15 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-       <link rel="stylesheet" href="output.css">
     <title>المخرجات</title>
-
+    <link rel="stylesheet" href="output.css">
 </head>
 <body>
 
     <div class="navbar">
         <img src="https://i.ibb.co/VTH1BHw/Logo.png" alt="شعار دقة" class="logo">
-      
         <ul>
             <li><a href="index.html">الصفحة الرئيسية</a></li>
             <li><a href="الخدمات.html">الخدمات</a></li>
@@ -30,33 +28,66 @@
             <label for="file-upload">اسحب الملف وأفلته هنا</label>
             <input type="file" id="file-upload" accept="image/*">
             
-            <!-- نموذج للزر لتحليل الفاتورة -->
+            <!-- زر تحليل الفاتورة -->
             <form action="تحليل الفاتورة.html" method="get">
                 <button type="submit" class="analyze-btn">تحليل الفاتورة</button>
             </form>
+
+            <!-- زر تصوير الفاتورة -->
+            <button class="capture-btn" id="capture-btn">تصوير الفاتورة</button>
         </div>
 
         <!-- قسم عرض الصورة المرفوعة -->
         <div class="output-section">
             <h2>الصورة المرفوعة</h2>
             <img id="uploaded-image" alt="صورة الفاتورة">
+            <video id="camera-stream" autoplay style="display: none;"></video>
         </div>
     </div>
 
     <script>
         const fileUpload = document.getElementById('file-upload');
         const uploadedImage = document.getElementById('uploaded-image');
+        const captureBtn = document.getElementById('capture-btn');
+        const cameraStream = document.getElementById('camera-stream');
 
+        // تحميل الصورة من الملفات
         fileUpload.addEventListener('change', function(event) {
             const file = event.target.files[0];
             if (file) {
                 const reader = new FileReader();
                 reader.onload = function(e) {
                     uploadedImage.src = e.target.result;
-                    uploadedImage.style.display = 'block'; // عرض الصورة
-                }
+                    uploadedImage.style.display = 'block';
+                    cameraStream.style.display = 'none';
+                };
                 reader.readAsDataURL(file);
             }
+        });
+
+        // التصوير باستخدام الكاميرا
+        captureBtn.addEventListener('click', function() {
+            navigator.mediaDevices.getUserMedia({ video: true })
+                .then((stream) => {
+                    cameraStream.srcObject = stream;
+                    cameraStream.style.display = 'block';
+                    uploadedImage.style.display = 'none';
+
+                    // أخذ لقطة عند التوقف
+                    setTimeout(() => {
+                        const canvas = document.createElement('canvas');
+                        canvas.width = cameraStream.videoWidth;
+                        canvas.height = cameraStream.videoHeight;
+                        canvas.getContext('2d').drawImage(cameraStream, 0, 0);
+                        uploadedImage.src = canvas.toDataURL('image/png');
+                        uploadedImage.style.display = 'block';
+                        cameraStream.style.display = 'none';
+                        stream.getTracks().forEach((track) => track.stop());
+                    }, 3000);
+                })
+                .catch((error) => {
+                    alert("تعذر الوصول إلى الكاميرا: " + error.message);
+                });
         });
     </script>
 
