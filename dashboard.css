@@ -1,0 +1,98 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    direction: rtl;
+}
+
+.navbar {
+    background-color: #222663;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    font-size: 1.2em;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+}
+
+.dashboard {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* عناوين الأقسام */
+.section-title {
+    font-size: 1.5em;
+    color: #222663;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #222663;
+    padding-bottom: 10px;
+}
+
+/* تنسيق الأقسام */
+.sales-dashboard,
+.purchases-dashboard {
+    margin-bottom: 40px;
+}
+
+.chart-box {
+    margin: 20px 0;
+    text-align: center;
+}
+
+/* نصائح المحاسبين */
+.tips {
+    background-color: #f9f9f9;
+    border: 1px solid #222663;
+    border-radius: 5px;
+    padding: 15px;
+    margin-top: 20px;
+}
+
+.tips h3 {
+    margin-top: 0;
+    color: #333;
+}
+
+.tips ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.tips ul li {
+    margin: 10px 0;
+    padding-left: 20px;
+    position: relative;
+    line-height: 1.6;
+}
+
+.tips ul li:before {
+    content: "✔";
+    color: #222663;
+    position: absolute;
+    left: 0;
+    font-size: 1.2em;
+    top: 0;
+}
+
+/* الرسم البياني */
+canvas {
+    max-width: 100%;
+    height: auto;
+}
+
+/* الهوامش الداخلية */
+@media (min-width: 768px) {
+    .dashboard {
+        padding: 40px;
+    }
+}
