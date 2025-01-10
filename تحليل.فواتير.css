@@ -1,0 +1,99 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+.navbar {
+    background-color: #222663; 
+    padding: 20px;
+    color: #fff;
+    position: relative; 
+}
+.navbar ul {
+    list-style-type: none;
+    padding: 0;
+}
+.navbar ul li {
+    display: inline;
+    margin-left: 20px;
+    font-size: 18px;
+}
+.navbar ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+.navbar .login-btn {
+    background-color: #28a745;
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: white;
+    text-decoration: none;
+}
+.logo {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    width: 100px;
+    height: auto;
+}
+.output-container {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+#invoices-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin: 20px 0;
+}
+.invoice-wrapper {
+    width: 250px;
+    text-align: center;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+.invoice-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+.action-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.copy-btn, .excel-btn {
+    margin-top: 10px;
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none;
+}
+.copy-btn:hover, .excel-btn:hover {
+    background-color: #218838;
+}
+.copy-btn, .excel-btn {
+    margin-top: 10px;
+    background-color: #28a745; /* نفس لون زر الحفظ */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none;
+}
+.copy-btn:hover, .excel-btn:hover {
+    background-color: #28a745; /* نفس تأثير hover */
+}

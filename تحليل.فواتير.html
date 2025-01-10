@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تحليل الفواتير</title>
+    <link rel="stylesheet" href="تحليل.فواتير.css">
+</head>
+<body>
+
+    <div class="navbar">
+        <img src="https://i.ibb.co/VTH1BHw/Logo.png" alt="شعار دقة" class="logo">
+        <ul>
+            <li><a href="index.html">الصفحة الرئيسية</a></li>
+            <li><a href="الخدمات.html">الخدمات</a></li>
+            <li><a href="من نحن؟.html">من نحن؟</a></li>
+            <li><a href="تسجيل الدخول.html" class="login-btn">تسجيل دخول</a></li>
+            <li><a href="output.html">الفاتورة</a></li>
+            <li><a href="اشترك معنا.html">اشترك معنا</a></li>
+            <li><a href="dashboard.html">لوحة المعلومات</a></li>
+        </ul>
+    </div>
+
+    <div class="output-container">
+        <h2>الفواتير المحللة</h2>
+        <div id="invoices-container">
+            <!-- فاتورة 1 -->
+            <div class="invoice-wrapper">
+                <img src="https://i.ibb.co/3CHqY8Y/image.png" alt="فاتورة 1" class="invoice-image">
+                <p id="invoiceDetails-1">
+                    اسم الشركة: شركة A<br>
+                    رقم الفاتورة: #5678<br>
+                    التاريخ: 2024/03/15<br>
+                    البيان: خدمات تقنية<br>
+                    السعر: 700 ريال<br>
+                    الضريبة: 105 ريال<br>
+                    الإجمالي: 805 ريال
+                </p>
+            </div>
+
+            <!-- فاتورة 2 -->
+            <div class="invoice-wrapper">
+                <img src="https://i.ibb.co/3CHqY8Y/image.png" alt="فاتورة 2" class="invoice-image">
+                <p id="invoiceDetails-2">
+                    اسم الشركة: شركة B<br>
+                    رقم الفاتورة: #7890<br>
+                    التاريخ: 2024/03/18<br>
+                    البيان: استشارات مالية<br>
+                    السعر: 900 ريال<br>
+                    الضريبة: 135 ريال<br>
+                    الإجمالي: 1035 ريال
+                </p>
+            </div>
+        </div>
+        <div class="action-buttons">
+                <button class="copy-btn" onclick="copyAllData()">نسخ البيانات</button>
+                <button class="excel-btn" onclick="saveAllToExcel()">حفظ جميع الفواتير كملف Excel</button>
+            </div>
+            
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+    <script>
+        function copyAllData() {
+            const details1 = document.getElementById("invoiceDetails-1").innerText;
+            const details2 = document.getElementById("invoiceDetails-2").innerText;
+            const allDetails = `${details1}\n\n${details2}`;
+            navigator.clipboard.writeText(allDetails).then(() => {
+                alert("تم نسخ جميع البيانات بنجاح!");
+            }).catch(err => {
+                alert("حدث خطأ أثناء نسخ البيانات: " + err);
+            });
+        }
+
+        function saveAllToExcel() {
+            const invoices = [
+                ["اسم الشركة", "رقم الفاتورة", "التاريخ", "البيان", "السعر", "الضريبة", "الإجمالي"], // العناوين
+                ["شركة A", "#5678", "2024/03/15", "خدمات تقنية", 700, 105, 805],
+                ["شركة B", "#7890", "2024/03/18", "استشارات مالية", 900, 135, 1035]
+            ];
+
+            const worksheet = XLSX.utils.aoa_to_sheet(invoices);
+            const workbook = XLSX.utils.book_new();
+            XLSX.utils.book_append_sheet(workbook, worksheet, "الفواتير");
+
+            XLSX.writeFile(workbook, "جميع_الفواتير.xlsx");
+        }
+    </script>
+
+</body>
+</html>
