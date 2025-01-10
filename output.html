@@ -35,13 +35,21 @@
 
             <!-- زر تصوير الفاتورة -->
             <button class="capture-btn" id="capture-btn">تصوير الفاتورة</button>
+
+            <!-- زر إرفاق أكثر من فاتورة -->
+            <button class="multi-upload-btn" id="multi-upload-btn">إرفاق أكثر من فاتورة</button>
+            <input type="file" id="multi-file-upload" accept="image/*" multiple style="display: none;">
+            
+            <!-- زر تحليل الفواتير -->
+            <a href="تحليل.فواتير.html" class="analyze-multiple-btn">تحليل الفواتير</a>
         </div>
 
-        <!-- قسم عرض الصورة المرفوعة -->
+        <!-- قسم عرض الصور المرفوعة -->
         <div class="output-section">
-            <h2>الصورة المرفوعة</h2>
-            <img id="uploaded-image" alt="صورة الفاتورة">
-            <video id="camera-stream" autoplay style="display: none;"></video>
+            <h2>الفواتير المرفوعة</h2>
+            <div id="multi-invoices-container">
+                <!-- سيتم عرض الصور المرفوعة هنا -->
+            </div>
         </div>
     </div>
 
@@ -50,6 +58,10 @@
         const uploadedImage = document.getElementById('uploaded-image');
         const captureBtn = document.getElementById('capture-btn');
         const cameraStream = document.getElementById('camera-stream');
+
+        const multiUploadBtn = document.getElementById('multi-upload-btn');
+        const multiFileUpload = document.getElementById('multi-file-upload');
+        const multiInvoicesContainer = document.getElementById('multi-invoices-container');
 
         // تحميل الصورة من الملفات
         fileUpload.addEventListener('change', function(event) {
@@ -71,7 +83,6 @@
                 .then((stream) => {
                     cameraStream.srcObject = stream;
                     cameraStream.style.display = 'block';
-                    uploadedImage.style.display = 'none';
 
                     // أخذ لقطة عند التوقف
                     setTimeout(() => {
@@ -88,6 +99,30 @@
                 .catch((error) => {
                     alert("تعذر الوصول إلى الكاميرا: " + error.message);
                 });
+        });
+
+        // زر إرفاق أكثر من فاتورة
+        multiUploadBtn.addEventListener('click', function() {
+            multiFileUpload.click();
+        });
+
+        // تحميل عدة فواتير
+        multiFileUpload.addEventListener('change', function(event) {
+            const files = Array.from(event.target.files);
+            multiInvoicesContainer.innerHTML = ''; // تفريغ الحاوية
+            files.forEach((file, index) => {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const imageWrapper = document.createElement('div');
+                    imageWrapper.classList.add('invoice-wrapper');
+                    imageWrapper.innerHTML = `
+                        <img src="${e.target.result}" alt="فاتورة ${index + 1}" class="invoice-image">
+                        <p>فاتورة رقم: ${index + 1}</p>
+                    `;
+                    multiInvoicesContainer.appendChild(imageWrapper);
+                };
+                reader.readAsDataURL(file);
+            });
         });
     </script>
 
